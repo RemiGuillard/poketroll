@@ -11,9 +11,11 @@ Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	getPokemonFile("pokedata.xml");
 	QObject::connect(ui.pokeList, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
+	//QObject::connect(ui.pokeList, SIGNAL(itemSelectionChanged()), this, SLOT(PokemonClicked(ui.pokeList->currentItem();)));
 	QObject::connect(ui.listEvo, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
 	QObject::connect(ui.searchButton, SIGNAL(clicked()), this, SLOT(SearchPokemon()));
 	QObject::connect(ui.searchLine, SIGNAL(returnPressed()), this, SLOT(SearchPokemon()));
+	//ui.pokeList->currentItem();
 }
 
 Pokedex::~Pokedex() {}
@@ -34,8 +36,8 @@ void	Pokedex::PokemonClicked(QListWidgetItem *item)
 {
 	/*QString tmp = item->text().toUpper();
 	int pos = tmp.indexOf(QRegExp("/[a-zA-Z]*?\s+/g"), 0);
-	QString test(0);
-	QMessageBox::information(this, "lol", test.setNum(pos));*/
+	QString test(0);*/
+	//QMessageBox::information(this, "lol", "item->text()");
 	pokemonDisplay(_pokeList.value(findIdWithName(item->text().toUpper())));
 }
 
