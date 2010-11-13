@@ -5,9 +5,12 @@
 #include <QDomDocument>
 #include <iostream>
 #include <QString>
+#include <QList>
 #include <QFile>
+#include <QMap>
 #include "ui_pokedex.h"
 #include "Pokemon.h"
+#include "Evolution.h"
 
 class Pokedex : public QMainWindow
 {
@@ -26,10 +29,27 @@ public:
 	void				readStats(QDomElement &Elem, Pokemon *poke);
 	void				readEvolution(QDomElement &Elem, Pokemon *poke);
 	void				readRatio(QDomElement &Elem, Pokemon *poke);
-	void				getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke);
+	void				readEgg(QDomElement &Elem, Pokemon *poke);
+	void				readSpecies(QDomElement &Elem, Pokemon *poke);
+	void				readHeight(QDomElement &Elem, Pokemon *poke);
+	void				readWeight(QDomElement &Elem, Pokemon *poke);
+	void				readDescription(QDomElement &Elem, Pokemon *poke);
+	void				readAttack(QDomElement &Elem, Pokemon *poke);
+public:
+	QMap<int, Pokemon *>	getPokeList() const;
+	void				pokemonNameListDisplay();
+	void				pokemonDisplay(const Pokemon *);
+	int					findIdWithName(QString name);
+	void				writeEvolutionList(const QList<Evolution *> &evo);
+	void				writeAtkList(const QList<Attack *> &atk);
+
+public slots:
+	void			PokemonClicked(QListWidgetItem *);
+	void			SearchPokemon();
+
 private:
 	Ui::Pokedex ui;
-	std::map<QString, Pokemon *> _pokeList;
+	QMap<int, Pokemon *> _pokeList;
 };
 
 #endif // POKEDEX_H

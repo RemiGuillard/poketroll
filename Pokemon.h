@@ -2,23 +2,20 @@
 # define POKEMON
 
 #include <QString>
-#include <list>
+#include <QList>
 
 #include "Evolution.h"
 #include "Stats.h"
-//#include "Attack.h"
-
-//using std::QString;
-using std::list;
+#include "Attack.h"
 
 class		Pokemon
 {
 public:
 	Pokemon();
-	Pokemon(int, QString, list<QString>, QString,
-			int, const Stats & , list<Evolution*>,
-			float, list<QString>, QString, float,
-			float, QString/*, list<Attack *>*/);
+	Pokemon(int, QString, QList<QString>, QString,
+			int, const Stats & , QList<Evolution*>,
+			float, QList<QString>, QString, float,
+			float, QString, QList<Attack *>);
 	Pokemon(const Pokemon &);
 	~Pokemon();
 
@@ -26,49 +23,49 @@ public:
 
 	int					getId() const;
 	QString				getName() const;
-	list<QString>		getTypes() const;
+	QList<QString>		getTypes() const;
 	QString				getAbility() const;
 	int					getExp() const;
 	Stats				getStats() const;
-	list<Evolution *>	getEvolve() const;
+	QList<Evolution *>	getEvolve() const;
 	float				getRatio() const;
-	list<QString>		getEggGroup() const;
+	QList<QString>		getEggGroup() const;
 	QString				getSpecies() const;
 	float				getHeight() const;
 	float				getWeight() const;
 	QString				getDescription() const;
-//	list<Attack *>		getAttacks() const;
+	QList<Attack *>		getAttacks() const;
 
 	void				setId(int);
 	void				setName(QString);
-	void				setTypes(const list<QString> &);
+	void				setTypes(const QList<QString> &);
 	void				setAbility(QString);
 	void				setExp(int);
 	void				setStats(const Stats &);
-	void				setEvolve(list<Evolution *>);
+	void				setEvolve(QList<Evolution *>);
 	void				setRatio(float);
-	void				setEggGroup(list<QString>);
+	void				setEggGroup(QList<QString>);
 	void				setSpecies(QString);
 	void				setHeight(float);
 	void				setWeight(float);
 	void				setDescription(QString);
-//	void				setAttacks(list<Attacks *>);
+	void				setAttacks(QList<Attack *>);
 
 private:
 	int					_id;
 	QString				_name;
-	list<QString>		_types;
+	QList<QString>		_types;
 	QString				_ability;
 	int					_exp;
 	Stats				_stats;
-	list<Evolution *>	_evolutions;
+	QList<Evolution *>	_evolutions;
 	float				_ratio;
-	list<QString>		_eggGroup;
+	QList<QString>		_eggGroup;
 	QString				_species;
 	float				_height;
 	float				_weight;
 	QString				_description;
-//	list<Attack *>		_attacks;
+	QList<Attack *>		_attacks;
 };
 
 #endif // !POKEMON
