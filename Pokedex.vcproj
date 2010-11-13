@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="Pokedex"
 	ProjectGUID="{73CAFE2D-F595-4ACC-9867-E122B66CD1D8}"
 	Keyword="Qt4VSv1.0"
@@ -161,6 +161,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Attack.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Evolution.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\main.cpp"
 				>
 			</File>
@@ -178,6 +186,14 @@
 			Filter="h"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Attack.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Evolution.h"
+				>
+			</File>
 			<File
 				RelativePath=".\pokedex.h"
 				>
