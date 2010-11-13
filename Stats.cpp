@@ -2,7 +2,7 @@
 
 Stats::Stats() {}
 Stats::Stats(const Stats& cpy) { *this = cpy; }
-Stats::~Stats();
+Stats::~Stats() {}
 
 Stats&		operator=(const Stats& cpy)
 {
