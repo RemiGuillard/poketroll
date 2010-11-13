@@ -2,9 +2,12 @@
 #define POKEDEX_H
 
 #include <QtGui/QMainWindow>
- #include <QDomDocument>
+#include <QDomDocument>
 #include <iostream>
+#include <QString>
+#include <QFile>
 #include "ui_pokedex.h"
+#include "Pokemon.h"
 
 class Pokedex : public QMainWindow
 {
@@ -15,12 +18,12 @@ public:
 	Pokedex(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~Pokedex();
 public:
-	void	getPokemonFile(const QString &path);
-	void	readName(const QDomElement &Elem/*, Pokemon *poke*/);
+	void				getPokemonFile(const QString &path);
+	void				readName(const QDomElement &Elem, Pokemon *poke);
 	//void	getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke);
 private:
 	Ui::Pokedex ui;
-	//std::list<Pokemon *> _pokeList;
+	std::list<Pokemon *> _pokeList;
 };
 
 #endif // POKEDEX_H

@@ -1,6 +1,4 @@
 #include <iostream>
-#include <QString>
-#include <QFile>
 #include "pokedex.h"
 
 Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
@@ -17,7 +15,7 @@ Pokedex::~Pokedex()
 
 
 
-/*std::string<Pokemon *>*/void	Pokedex::getPokemonFile(const QString &path)
+void	Pokedex::getPokemonFile(const QString &path)
 {
 	QDomDocument myXml(path);
 	QFile file(path);
@@ -29,12 +27,12 @@ Pokedex::~Pokedex()
 	int idPoke = 1;
 	while (!racine.isNull())
 	{
-		//Pokemon	*poke = new Pokemon();
+		Pokemon	*poke = new Pokemon();
 		if (racine.tagName() == "pokemon")
 		{
-			//poke->setPokeId = idPoke;
+			poke->setId(idPoke);
 			QDomElement Elem = racine.firstChildElement();
-			this->readName(Elem/*, poke*/);
+			this->readName(Elem, poke);
 /*			this->getPokeInfoInNode(Elem, poke);*/
 		}
 		++idPoke;
@@ -42,12 +40,10 @@ Pokedex::~Pokedex()
 	}
 }
 
-void	Pokedex::readName(const QDomElement &Elem/*, Pokemon *poke*/)
+void	Pokedex::readName(const QDomElement &Elem, Pokemon *poke)
 {
-	QDomNodeList Node;
-	Node = Elem.elementsByTagName("name");
-
-	//poke->setName(Node.text);
+	if (Elem.tagName() == "name")
+		poke->setName(Elem.text());
 }
 
 /*
