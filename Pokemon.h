@@ -4,7 +4,7 @@
 #include <QString>
 #include <list>
 
-//#include "Evolution.h"
+#include "Evolution.h"
 //#include "Attack.h"
 
 //using std::QString;
@@ -43,8 +43,8 @@ public:
 	void				setTypes(const list<QString> &);
 	void				setAbility(QString);
 	void				setExp(int);
-//	void				setStats(Stats *);
-//	void				setEvolve(list<Evolution *>);
+//	void				setStats(const Stats &);
+	void				setEvolve(list<Evolution *>);
 	void				setRatio(float);
 	void				setEggGroup(list<QString>);
 	void				setSpecies(QString);
@@ -59,7 +59,7 @@ private:
 	list<QString>		_types;
 	QString				_ability;
 	int					_exp;
-//	Stats*				_stats;
+//	Stats				_stats;
 //	list<Evolution *>	_evolutions;
 	float				_ratio;
 	list<QString>		_eggGroup;
