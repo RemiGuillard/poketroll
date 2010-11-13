@@ -25,8 +25,8 @@
      <widget class="QTabWidget" name="tabWidget">
       <property name="minimumSize">
        <size>
-        <width>450</width>
-        <height>517</height>
+        <width>777</width>
+        <height>643</height>
        </size>
       </property>
       <property name="palette">
@@ -94,11 +94,11 @@
        </palette>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Page</string>
+        <string>Dresseur</string>
        </attribute>
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
@@ -116,7 +116,7 @@
       </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Pokemon</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
@@ -225,16 +225,81 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="Team">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Team</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="Image">
           <property name="minimumSize">
            <size>
-            <width>221</width>
+            <width>131</width>
+            <height>121</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <widget class="QLabel" name="image">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>20</y>
+             <width>81</width>
+             <height>81</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QGroupBox" name="Equipe">
+          <property name="minimumSize">
+           <size>
+            <width>351</width>
+            <height>121</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <widget class="QLabel" name="nomEquipe">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>321</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="3" rowspan="3">
+         <widget class="QTextBrowser" name="pokemonList">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>256</width>
+            <height>601</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QGroupBox" name="pokeData">
+          <property name="minimumSize">
+           <size>
+            <width>231</width>
             <height>231</height>
            </size>
           </property>
@@ -243,17 +308,39 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1" rowspan="2">
-         <widget class="QTextBrowser" name="textBrowser_3">
-          <property name="enabled">
-           <bool>false</bool>
+        <item row="1" column="2">
+         <widget class="QGroupBox" name="teamManagement">
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>231</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>GroupBox</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QTextBrowser" name="textBrowser_4">
+        <item row="2" column="0" colspan="2">
+         <widget class="QTextBrowser" name="pokeTeamList">
           <property name="enabled">
            <bool>false</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>231</width>
+            <height>231</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QListWidget" name="teamList">
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>231</height>
+           </size>
           </property>
          </widget>
         </item>
