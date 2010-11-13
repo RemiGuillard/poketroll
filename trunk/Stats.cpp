@@ -4,7 +4,7 @@ Stats::Stats() {}
 Stats::Stats(const Stats& cpy) { *this = cpy; }
 Stats::~Stats() {}
 
-Stats&		operator=(const Stats& cpy)
+Stats&		Stats::operator=(const Stats& cpy)
 {
 	if (this != &cpy)
 	{
@@ -18,16 +18,16 @@ Stats&		operator=(const Stats& cpy)
 	return *this;
 }
 
-void		setHp(int param) { _hp = param; }
-void		setAtk(int param) { _atk = param; }
-void		setDef(int param) { _def = param; }
-void		setSpd(int param) { _spd = param; }
-void		setSat(int param) { _sat = param; }
-void		setSdf(int param) { _sdf = param; }
+void		Stats::setHp(int param) { _hp = param; }
+void		Stats::setAtk(int param) { _atk = param; }
+void		Stats::setDef(int param) { _def = param; }
+void		Stats::setSpd(int param) { _spd = param; }
+void		Stats::setSat(int param) { _sat = param; }
+void		Stats::setSdf(int param) { _sdf = param; }
 
-int			getHp() const { return _hp; }
-int			getAtk() const { return _atk; }
-int			getDef() const { return _def; }
-int			getSpd() const { return _spd; }
-int			getSat() const { return _sat; }
-int			getSdf() const { return _sdf; }
+int			Stats::getHp() const { return _hp; }
+int			Stats::getAtk() const { return _atk; }
+int			Stats::getDef() const { return _def; }
+int			Stats::getSpd() const { return _spd; }
+int			Stats::getSat() const { return _sat; }
+int			Stats::getSdf() const { return _sdf; }

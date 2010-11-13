@@ -23,7 +23,7 @@ public:
 	void			setMachine(QString);
 
 	QString			getLvl() const;
-	void			setRequire(QString);
+	void			setLvl(QString);
 
 private:
 	QString			_type;
