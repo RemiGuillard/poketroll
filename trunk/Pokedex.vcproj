@@ -180,6 +180,10 @@
 				RelativePath=".\Pokemon.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\Stats.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -222,6 +226,10 @@
 			</File>
 			<File
 				RelativePath=".\Pokemon.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Stats.h"
 				>
 			</File>
 			<File
