@@ -1,6 +1,8 @@
 #ifndef ATTACK
 # define ATTACK
 
+#include <QString>
+
 class		Attack
 {
 public:
