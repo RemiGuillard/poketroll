@@ -224,6 +224,10 @@
 				RelativePath=".\Pokemon.h"
 				>
 			</File>
+			<File
+				RelativePath=".\Team.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Form Files"
