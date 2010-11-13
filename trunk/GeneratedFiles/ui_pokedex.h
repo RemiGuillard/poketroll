@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'pokedex.ui'
 **
-** Created: Sat 13. Nov 16:21:00 2010
+** Created: Sat 13. Nov 17:50:48 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -54,11 +54,17 @@ public:
     QWidget *pokeAttack;
     QHBoxLayout *horizontalLayout_3;
     QListWidget *listAttack;
-    QWidget *tab_2;
+    QWidget *Team;
     QGridLayout *gridLayout_2;
-    QGroupBox *groupBox_2;
-    QTextBrowser *textBrowser_3;
-    QTextBrowser *textBrowser_4;
+    QGroupBox *Image;
+    QLabel *image;
+    QGroupBox *Equipe;
+    QLabel *nomEquipe;
+    QTextBrowser *pokemonList;
+    QGroupBox *pokeData;
+    QGroupBox *teamManagement;
+    QTextBrowser *pokeTeamList;
+    QListWidget *teamList;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -74,7 +80,7 @@ public:
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setMinimumSize(QSize(450, 517));
+        tabWidget->setMinimumSize(QSize(777, 643));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -159,29 +165,61 @@ public:
         gridLayout->addWidget(pokeEvoAttack, 2, 2, 1, 1);
 
         tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        gridLayout_2 = new QGridLayout(tab_2);
+        Team = new QWidget();
+        Team->setObjectName(QString::fromUtf8("Team"));
+        gridLayout_2 = new QGridLayout(Team);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        groupBox_2 = new QGroupBox(tab_2);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setMinimumSize(QSize(221, 231));
+        Image = new QGroupBox(Team);
+        Image->setObjectName(QString::fromUtf8("Image"));
+        Image->setMinimumSize(QSize(131, 121));
+        image = new QLabel(Image);
+        image->setObjectName(QString::fromUtf8("image"));
+        image->setGeometry(QRect(30, 20, 81, 81));
 
-        gridLayout_2->addWidget(groupBox_2, 0, 0, 1, 1);
+        gridLayout_2->addWidget(Image, 0, 0, 1, 1);
 
-        textBrowser_3 = new QTextBrowser(tab_2);
-        textBrowser_3->setObjectName(QString::fromUtf8("textBrowser_3"));
-        textBrowser_3->setEnabled(false);
+        Equipe = new QGroupBox(Team);
+        Equipe->setObjectName(QString::fromUtf8("Equipe"));
+        Equipe->setMinimumSize(QSize(351, 121));
+        nomEquipe = new QLabel(Equipe);
+        nomEquipe->setObjectName(QString::fromUtf8("nomEquipe"));
+        nomEquipe->setGeometry(QRect(10, 20, 321, 91));
 
-        gridLayout_2->addWidget(textBrowser_3, 0, 1, 2, 1);
+        gridLayout_2->addWidget(Equipe, 0, 1, 1, 2);
 
-        textBrowser_4 = new QTextBrowser(tab_2);
-        textBrowser_4->setObjectName(QString::fromUtf8("textBrowser_4"));
-        textBrowser_4->setEnabled(false);
+        pokemonList = new QTextBrowser(Team);
+        pokemonList->setObjectName(QString::fromUtf8("pokemonList"));
+        pokemonList->setEnabled(false);
+        pokemonList->setMinimumSize(QSize(256, 601));
 
-        gridLayout_2->addWidget(textBrowser_4, 1, 0, 1, 1);
+        gridLayout_2->addWidget(pokemonList, 0, 3, 3, 1);
 
-        tabWidget->addTab(tab_2, QString());
+        pokeData = new QGroupBox(Team);
+        pokeData->setObjectName(QString::fromUtf8("pokeData"));
+        pokeData->setMinimumSize(QSize(231, 231));
+
+        gridLayout_2->addWidget(pokeData, 1, 0, 1, 2);
+
+        teamManagement = new QGroupBox(Team);
+        teamManagement->setObjectName(QString::fromUtf8("teamManagement"));
+        teamManagement->setMinimumSize(QSize(251, 231));
+
+        gridLayout_2->addWidget(teamManagement, 1, 2, 1, 1);
+
+        pokeTeamList = new QTextBrowser(Team);
+        pokeTeamList->setObjectName(QString::fromUtf8("pokeTeamList"));
+        pokeTeamList->setEnabled(false);
+        pokeTeamList->setMinimumSize(QSize(231, 231));
+
+        gridLayout_2->addWidget(pokeTeamList, 2, 0, 1, 2);
+
+        teamList = new QListWidget(Team);
+        teamList->setObjectName(QString::fromUtf8("teamList"));
+        teamList->setMinimumSize(QSize(251, 231));
+
+        gridLayout_2->addWidget(teamList, 2, 2, 1, 1);
+
+        tabWidget->addTab(Team, QString());
 
         gridLayout_3->addWidget(tabWidget, 0, 0, 1, 1);
 
@@ -196,7 +234,7 @@ public:
 
         retranslateUi(Pokedex);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
         pokeEvoAttack->setCurrentIndex(1);
 
 
@@ -207,7 +245,7 @@ public:
     {
         Pokedex->setWindowTitle(QApplication::translate("Pokedex", "MainWindow", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("Pokedex", "PushButton", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Pokedex", "Page", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Pokedex", "Dresseur", 0, QApplication::UnicodeUTF8));
         pokeImg->setTitle(QApplication::translate("Pokedex", "PokeImg", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("Pokedex", "image", 0, QApplication::UnicodeUTF8));
         pokeIdNom->setTitle(QApplication::translate("Pokedex", "Infos", 0, QApplication::UnicodeUTF8));
@@ -215,9 +253,14 @@ public:
         pokeDescription->setTitle(QApplication::translate("Pokedex", "Description", 0, QApplication::UnicodeUTF8));
         pokeEvoAttack->setTabText(pokeEvoAttack->indexOf(pokeEvo), QApplication::translate("Pokedex", "Evolution", 0, QApplication::UnicodeUTF8));
         pokeEvoAttack->setTabText(pokeEvoAttack->indexOf(pokeAttack), QApplication::translate("Pokedex", "attaques", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Pokedex", "Tab 1", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Pokedex", "Tab 2", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Pokedex", "Pokemon", 0, QApplication::UnicodeUTF8));
+        Image->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
+        image->setText(QApplication::translate("Pokedex", "TextLabel", 0, QApplication::UnicodeUTF8));
+        Equipe->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
+        nomEquipe->setText(QApplication::translate("Pokedex", "TextLabel", 0, QApplication::UnicodeUTF8));
+        pokeData->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
+        teamManagement->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(Team), QApplication::translate("Pokedex", "Team", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(Pokedex);
     } // retranslateUi
 
