@@ -1,6 +1,7 @@
 #include <iostream>
 #include "pokedex.h"
 #include "Evolution.h"
+#include "Stats.h"
 
 Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -26,30 +27,43 @@ void	Pokedex::getPokemonFile(const QString &path)
 	doc.setContent(&file, false);
 	QDomElement racine = doc.documentElement();
 	racine = racine.firstChildElement();
-	int idPoke = 1;
 	while (!racine.isNull())
 	{
 		Pokemon	*poke = new Pokemon();
 		if (racine.tagName() == "pokemon")
 		{
-			poke->setId(idPoke);
+			poke->setId(racine.attribute("id").toInt());
 			QDomElement Elem = racine.firstChildElement();
 			this->readName(Elem, poke);
 			this->readTypes(Elem, poke);
 			this->readAbility(Elem, poke);
 			this->readExp(Elem, poke);
-			//this->readStats(Elem, poke);
+			this->readStats(Elem, poke);
 			this->readEvolution(Elem, poke);
+			this->readRatio(Elem, poke);
 		}
-		++idPoke;
 		racine = racine.nextSiblingElement();
 	}
 }
 
+void	Pokedex::readRatio(QDomElement &Elem, Pokemon *poke)
+{
+	if (Elem.tagName() == "ratio")
+	{
+		QDomElement node = Elem.firstChildElement();	
+		if (node.tagName() == "male")
+			poke->setRatio(node.text().toFloat());
+		else if (node.tagName() == "female")
+			poke->setRatio(100 - node.text().toFloat());
+		Elem = Elem.nextSiblingElement();
+	}	
+	else
+		poke->setRatio(0);
+}
+
+
 void	Pokedex::readEvolution(QDomElement &Elem, Pokemon *poke)
 {
-	int	idEvo = 1;
-
 	if (Elem.tagName() == "evolutions")
 	{
 		std::list<Evolution *> evoList;
@@ -59,19 +73,17 @@ void	Pokedex::readEvolution(QDomElement &Elem, Pokemon *poke)
 		{
 			QDomElement ssNode = node.firstChildElement();
 			Evolution *evo = new Evolution;
-			evo->setId(idEvo);
+			evo->setId(node.attribute("id").toInt());
 			QString	require = "";
 			while (!ssNode.isNull())
 			{
 				if (ssNode.tagName() == "name")
 					evo->setName(ssNode.text());
-				else if (ssNode.tagName() == "require")
+				else if (ssNode.tagName() == "lvl" || ssNode.tagName() == "condition")
 					require = ssNode.text();
 				ssNode = ssNode.nextSiblingElement();
 			}
-			++idEvo;
 			evo->setRequire(require);
-			ui.pokeList->addItem(evo->getName());
 			evoList.push_back(evo);
 			node = node.nextSiblingElement();
 		}
@@ -121,28 +133,29 @@ void Pokedex::readExp(QDomElement &Elem, Pokemon *poke)
 	}
 }
 
-/*
+
 void Pokedex::readStats(QDomElement &Elem, Pokemon *poke)
 {
 	if (Elem.tagName() == "stats")
 	{
-		stats	Statu;
-		QDomDocument node = Elem.firstChildElement();
+		Stats	Statu;
+		QDomElement node = Elem.firstChildElement();
 		while (!node.isNull())
 		{
-			Statu.setHp();
+			Statu.setHp(node.text().toInt());
 			node = node.nextSiblingElement();
-			Statu.setAtk();
+			Statu.setAtk(node.text().toInt());
 			node = node.nextSiblingElement();
-			Statu.setDef();
+			Statu.setDef(node.text().toInt());
 			node = node.nextSiblingElement();
-			Statu.setSpd();
+			Statu.setSpd(node.text().toInt());
 			node = node.nextSiblingElement();
-			Statu.setSat();
+			Statu.setSat(node.text().toInt());
 			node = node.nextSiblingElement();
-			Statu.setSdf();
+			Statu.setSdf(node.text().toInt());
 			node = node.nextSiblingElement();
 		}
 		poke->setStats(Statu);
+		Elem = Elem.nextSiblingElement();
 	}
-}*/
+}

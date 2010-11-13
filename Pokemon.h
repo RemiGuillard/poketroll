@@ -5,6 +5,7 @@
 #include <list>
 
 #include "Evolution.h"
+#include "Stats.h"
 //#include "Attack.h"
 
 //using std::QString;
@@ -15,7 +16,7 @@ class		Pokemon
 public:
 	Pokemon();
 	Pokemon(int, QString, list<QString>, QString,
-			int/*, Stats* *//*, list<Evolution*>*/,
+			int, const Stats & , list<Evolution*>,
 			float, list<QString>, QString, float,
 			float, QString/*, list<Attack *>*/);
 	Pokemon(const Pokemon &);
@@ -28,8 +29,8 @@ public:
 	list<QString>		getTypes() const;
 	QString				getAbility() const;
 	int					getExp() const;
-//	Stats				getStats() const;
-//	list<Evolution *>	getEvolve() const;
+	Stats				getStats() const;
+	list<Evolution *>	getEvolve() const;
 	float				getRatio() const;
 	list<QString>		getEggGroup() const;
 	QString				getSpecies() const;
@@ -43,7 +44,7 @@ public:
 	void				setTypes(const list<QString> &);
 	void				setAbility(QString);
 	void				setExp(int);
-//	void				setStats(const Stats &);
+	void				setStats(const Stats &);
 	void				setEvolve(list<Evolution *>);
 	void				setRatio(float);
 	void				setEggGroup(list<QString>);
@@ -59,7 +60,7 @@ private:
 	list<QString>		_types;
 	QString				_ability;
 	int					_exp;
-//	Stats				_stats;
+	Stats				_stats;
 	list<Evolution *>	_evolutions;
 	float				_ratio;
 	list<QString>		_eggGroup;
