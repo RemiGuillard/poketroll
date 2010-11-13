@@ -1,4 +1,3 @@
-#include <QString>
 #include "Pokemon.h"
 
 Pokemon::Pokemon() {}
