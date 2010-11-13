@@ -60,7 +60,7 @@ private:
 	QString				_ability;
 	int					_exp;
 //	Stats				_stats;
-//	list<Evolution *>	_evolutions;
+	list<Evolution *>	_evolutions;
 	float				_ratio;
 	list<QString>		_eggGroup;
 	QString				_species;
