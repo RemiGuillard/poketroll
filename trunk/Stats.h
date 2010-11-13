@@ -10,27 +10,27 @@ public:
 
 	Stats&		operator=(const Stats&);
 
-	void		setHp(int);
-	void		setAtk(int);
-	void		setDef(int);
-	void		setSpd(int);
-	void		setSat(int);
-	void		setSdf(int);
+	void		setHp(QString);
+	void		setAtk(QString);
+	void		setDef(QString);
+	void		setSpd(QString);
+	void		setSat(QString);
+	void		setSdf(QString);
 
-	int			getHp() const;
-	int			getAtk() const;
-	int			getDef() const;
-	int			getSpd() const;
-	int			getSat() const;
-	int			getSdf() const;
+	QString			getHp() const;
+	QString			getAtk() const;
+	QString			getDef() const;
+	QString			getSpd() const;
+	QString			getSat() const;
+	QString			getSdf() const;
 
 private:
-	int			_hp;
-	int			_atk;
-	int			_def;
-	int			_spd;
-	int			_sat;
-	int			_sdf;
+	QString			_hp;
+	QString			_atk;
+	QString			_def;
+	QString			_spd;
+	QString			_sat;
+	QString			_sdf;
 };
 
 #endif // !STATS

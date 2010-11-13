@@ -1,3 +1,4 @@
+#include <QString>
 #include "Stats.h"
 
 Stats::Stats() {}
@@ -18,16 +19,16 @@ Stats&		Stats::operator=(const Stats& cpy)
 	return *this;
 }
 
-void		Stats::setHp(int param) { _hp = param; }
-void		Stats::setAtk(int param) { _atk = param; }
-void		Stats::setDef(int param) { _def = param; }
-void		Stats::setSpd(int param) { _spd = param; }
-void		Stats::setSat(int param) { _sat = param; }
-void		Stats::setSdf(int param) { _sdf = param; }
+void		Stats::setHp(QString param) { _hp = param; }
+void		Stats::setAtk(QString param) { _atk = param; }
+void		Stats::setDef(QString param) { _def = param; }
+void		Stats::setSpd(QString param) { _spd = param; }
+void		Stats::setSat(QString param) { _sat = param; }
+void		Stats::setSdf(QString param) { _sdf = param; }
 
-int			Stats::getHp() const { return _hp; }
-int			Stats::getAtk() const { return _atk; }
-int			Stats::getDef() const { return _def; }
-int			Stats::getSpd() const { return _spd; }
-int			Stats::getSat() const { return _sat; }
-int			Stats::getSdf() const { return _sdf; }
+QString			Stats::getHp() const { return _hp; }
+QString			Stats::getAtk() const { return _atk; }
+QString			Stats::getDef() const { return _def; }
+QString			Stats::getSpd() const { return _spd; }
+QString			Stats::getSat() const { return _sat; }
+QString			Stats::getSdf() const { return _sdf; }

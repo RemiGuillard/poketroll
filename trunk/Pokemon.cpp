@@ -2,14 +2,14 @@
 
 Pokemon::Pokemon() {}
 
-Pokemon::Pokemon(int id, QString name, list<QString> types, QString ability,
-			int exp, const Stats &stats, list<Evolution*> evolutions,
-			float ratio, list<QString> eggGroup, QString species, float height,
-			float weight, QString description/*, list<Attack *> attacks*/)
+Pokemon::Pokemon(int id, QString name, QList<QString> types, QString ability,
+			int exp, const Stats &stats, QList<Evolution*> evolutions,
+			float ratio, QList<QString> eggGroup, QString species, float height,
+			float weight, QString description, QList<Attack *> attacks)
 			: _id(id), _name(name), _types(types), _ability(ability),
 			_exp(exp), _stats(stats), _evolutions(evolutions),
 			_ratio(ratio), _eggGroup(eggGroup), _species(species), _height(height),
-			_weight(weight), _description(description)/*, _attacks(attacks)*/ {}
+			_weight(weight), _description(description), _attacks(attacks) {}
 
 Pokemon::Pokemon(const Pokemon &cpy)
 {
@@ -35,7 +35,7 @@ Pokemon&			Pokemon::operator=(const Pokemon &cpy)
 		_height = cpy._height;
 		_weight = cpy._weight;
 		_description = cpy._description;
-//		_attacks = cpy._attacks;
+		_attacks = cpy._attacks;
 	}
 	return *this;
 }
@@ -44,7 +44,7 @@ int					Pokemon::getId() const { return _id; }
 
 QString				Pokemon::getName() const { return _name; }
 
-list<QString>		Pokemon::getTypes() const { return _types; }
+QList<QString>		Pokemon::getTypes() const { return _types; }
 
 QString				Pokemon::getAbility() const { return _ability; }
 
@@ -52,11 +52,11 @@ int					Pokemon::getExp() const { return _exp; }
 
 Stats				Pokemon::getStats() const { return _stats; }
 
-list<Evolution *>	Pokemon::getEvolve() const { return _evolutions; }
+QList<Evolution *>	Pokemon::getEvolve() const { return _evolutions; }
 
 float				Pokemon::getRatio() const { return _ratio; }
 
-list<QString>		Pokemon::getEggGroup() const { return _eggGroup; }
+QList<QString>		Pokemon::getEggGroup() const { return _eggGroup; }
 
 QString				Pokemon::getSpecies() const { return _species; }
 
@@ -66,13 +66,13 @@ float				Pokemon::getWeight() const { return _weight; }
 
 QString				Pokemon::getDescription() const { return _description; }
 
-//list<Attack *>		Pokemon::getAttacks() const { return _attacks; }
+QList<Attack *>		Pokemon::getAttacks() const { return _attacks; }
 
 void				Pokemon::setId(int id) { _id = id; }
 
 void				Pokemon::setName(QString name) { _name = name; }
 
-void				Pokemon::setTypes(const list<QString> &type) { _types = type; }
+void				Pokemon::setTypes(const QList<QString> &type) { _types = type; }
 
 void				Pokemon::setAbility(QString abi) { _ability = abi; }
 
@@ -80,11 +80,11 @@ void				Pokemon::setExp(int exp) { _exp = exp; }
 
 void				Pokemon::setStats(const Stats &stat) { _stats = stat; }
 
-void				Pokemon::setEvolve(list<Evolution *> evo) { _evolutions = evo; }
+void				Pokemon::setEvolve(QList<Evolution *> evo) { _evolutions = evo; }
 
 void				Pokemon::setRatio(float ratio) { _ratio = ratio; }
 
-void				Pokemon::setEggGroup(list<QString> egg) { _eggGroup = egg; }
+void				Pokemon::setEggGroup(QList<QString> egg) { _eggGroup = egg; }
 
 void				Pokemon::setSpecies(QString spec) { _species = spec; }
 
@@ -94,4 +94,4 @@ void				Pokemon::setWeight(float w) { _weight = w; }
 
 void				Pokemon::setDescription(QString desc) { _description = desc; }
 
-//void				Pokemon::setAttacks(list<Attacks *> att) { _attacks = att; }
+void				Pokemon::setAttacks(QList<Attack *> att) { _attacks = att; }
