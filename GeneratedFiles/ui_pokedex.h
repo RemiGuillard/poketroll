@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'pokedex.ui'
 **
-** Created: Sat Nov 13 23:03:20 2010
+** Created: Sat Nov 13 23:43:33 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -92,16 +92,6 @@ public:
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setMinimumSize(QSize(777, 643));
-        QPalette palette;
-        QBrush brush(QColor(255, 255, 255, 255));
-        brush.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette.setBrush(QPalette::Active, QPalette::Window, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
-        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
-        tabWidget->setPalette(palette);
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         pushButton = new QPushButton(tab_3);
@@ -128,6 +118,13 @@ public:
         pokeIdNom = new QGroupBox(tab);
         pokeIdNom->setObjectName(QString::fromUtf8("pokeIdNom"));
         pokeIdNom->setMinimumSize(QSize(351, 141));
+        QPalette palette;
+        QBrush brush(QColor(170, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        pokeIdNom->setPalette(palette);
         horizontalLayout_4 = new QHBoxLayout(pokeIdNom);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         labelName = new QLabel(pokeIdNom);
@@ -304,7 +301,7 @@ public:
         labelImg->setText(QApplication::translate("Pokedex", "TextLabel", 0, QApplication::UnicodeUTF8));
         pokeIdNom->setTitle(QApplication::translate("Pokedex", "Infos", 0, QApplication::UnicodeUTF8));
         labelName->setText(QApplication::translate("Pokedex", "TextLabel", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("Pokedex", "recherche", 0, QApplication::UnicodeUTF8));
         searchButton->setText(QApplication::translate("Pokedex", "recherche", 0, QApplication::UnicodeUTF8));
         pokeStats->setTitle(QApplication::translate("Pokedex", "Stats", 0, QApplication::UnicodeUTF8));
         pokeDescription->setTitle(QApplication::translate("Pokedex", "Description", 0, QApplication::UnicodeUTF8));
