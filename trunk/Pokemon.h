@@ -40,7 +40,7 @@ public:
 
 	void				setId(int);
 	void				setName(QString);
-	void				setTypes(list<QString>);
+	void				setTypes(const list<QString> &);
 	void				setAbility(QString);
 	void				setExp(int);
 //	void				setStats(Stats *);

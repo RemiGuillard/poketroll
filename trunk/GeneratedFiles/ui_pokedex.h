@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'pokedex.ui'
 **
-** Created: Sat Nov 13 12:00:31 2010
+** Created: Sat Nov 13 15:35:32 2010
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -18,6 +18,8 @@
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
+#include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
@@ -32,15 +34,26 @@ class Ui_Pokedex
 {
 public:
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout_3;
     QTabWidget *tabWidget;
     QWidget *tab_3;
-    QWidget *tab;
-    QTextBrowser *textBrowser;
-    QTextBrowser *textBrowser_2;
-    QGroupBox *groupBox;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QWidget *tab;
+    QGridLayout *gridLayout;
+    QGroupBox *pokeImg;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label;
+    QGroupBox *pokeIdNom;
+    QListWidget *pokeList;
+    QGroupBox *pokeStats;
+    QGroupBox *pokeDescription;
+    QTabWidget *pokeEvoAttack;
+    QWidget *pokeEvo;
+    QHBoxLayout *horizontalLayout_2;
+    QListWidget *listEvo;
+    QWidget *pokeAttack;
+    QHBoxLayout *horizontalLayout_3;
+    QListWidget *listAttack;
     QWidget *tab_2;
     QGridLayout *gridLayout_2;
     QGroupBox *groupBox_2;
@@ -53,12 +66,12 @@ public:
     {
         if (Pokedex->objectName().isEmpty())
             Pokedex->setObjectName(QString::fromUtf8("Pokedex"));
-        Pokedex->resize(468, 578);
-        Pokedex->setMaximumSize(QSize(468, 578));
+        Pokedex->resize(795, 704);
+        Pokedex->setMinimumSize(QSize(795, 704));
         centralwidget = new QWidget(Pokedex);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayout = new QHBoxLayout(centralwidget);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        gridLayout_3 = new QGridLayout(centralwidget);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setMinimumSize(QSize(450, 517));
@@ -66,65 +79,85 @@ public:
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Base, brush);
-        QBrush brush1(QColor(170, 0, 0, 255));
-        brush1.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush);
         palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
         tabWidget->setPalette(palette);
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        pushButton = new QPushButton(tab_3);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(290, 350, 161, 51));
         tabWidget->addTab(tab_3, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        textBrowser = new QTextBrowser(tab);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setEnabled(false);
-        textBrowser->setGeometry(QRect(234, 50, 201, 431));
-        QPalette palette1;
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush);
-        QBrush brush2(QColor(255, 170, 0, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush2);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush2);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush2);
-        textBrowser->setPalette(palette1);
-        textBrowser_2 = new QTextBrowser(tab);
-        textBrowser_2->setObjectName(QString::fromUtf8("textBrowser_2"));
-        textBrowser_2->setEnabled(false);
-        textBrowser_2->setGeometry(QRect(9, 256, 221, 225));
-        QPalette palette2;
-        palette2.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette2.setBrush(QPalette::Active, QPalette::Window, brush2);
-        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette2.setBrush(QPalette::Inactive, QPalette::Window, brush2);
-        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush2);
-        palette2.setBrush(QPalette::Disabled, QPalette::Window, brush2);
-        textBrowser_2->setPalette(palette2);
-        groupBox = new QGroupBox(tab);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(9, 9, 221, 241));
-        groupBox->setMinimumSize(QSize(221, 241));
-        QPalette palette3;
-        palette3.setBrush(QPalette::Active, QPalette::Base, brush);
-        QBrush brush3(QColor(85, 170, 0, 255));
-        brush3.setStyle(Qt::SolidPattern);
-        palette3.setBrush(QPalette::Active, QPalette::Window, brush3);
-        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette3.setBrush(QPalette::Inactive, QPalette::Window, brush3);
-        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush3);
-        palette3.setBrush(QPalette::Disabled, QPalette::Window, brush3);
-        groupBox->setPalette(palette3);
-        pushButton = new QPushButton(tab);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(250, 20, 75, 23));
-        pushButton_2 = new QPushButton(tab);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(350, 20, 75, 23));
+        gridLayout = new QGridLayout(tab);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        pokeImg = new QGroupBox(tab);
+        pokeImg->setObjectName(QString::fromUtf8("pokeImg"));
+        pokeImg->setMinimumSize(QSize(151, 141));
+        horizontalLayout = new QHBoxLayout(pokeImg);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label = new QLabel(pokeImg);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout->addWidget(label);
+
+
+        gridLayout->addWidget(pokeImg, 0, 0, 1, 1);
+
+        pokeIdNom = new QGroupBox(tab);
+        pokeIdNom->setObjectName(QString::fromUtf8("pokeIdNom"));
+        pokeIdNom->setMinimumSize(QSize(351, 141));
+
+        gridLayout->addWidget(pokeIdNom, 0, 1, 1, 2);
+
+        pokeList = new QListWidget(tab);
+        pokeList->setObjectName(QString::fromUtf8("pokeList"));
+        pokeList->setMinimumSize(QSize(241, 571));
+
+        gridLayout->addWidget(pokeList, 0, 3, 3, 1);
+
+        pokeStats = new QGroupBox(tab);
+        pokeStats->setObjectName(QString::fromUtf8("pokeStats"));
+        pokeStats->setMinimumSize(QSize(211, 411));
+
+        gridLayout->addWidget(pokeStats, 1, 0, 2, 2);
+
+        pokeDescription = new QGroupBox(tab);
+        pokeDescription->setObjectName(QString::fromUtf8("pokeDescription"));
+        pokeDescription->setMinimumSize(QSize(281, 131));
+
+        gridLayout->addWidget(pokeDescription, 1, 2, 1, 1);
+
+        pokeEvoAttack = new QTabWidget(tab);
+        pokeEvoAttack->setObjectName(QString::fromUtf8("pokeEvoAttack"));
+        pokeEvoAttack->setMinimumSize(QSize(281, 261));
+        pokeEvo = new QWidget();
+        pokeEvo->setObjectName(QString::fromUtf8("pokeEvo"));
+        horizontalLayout_2 = new QHBoxLayout(pokeEvo);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        listEvo = new QListWidget(pokeEvo);
+        listEvo->setObjectName(QString::fromUtf8("listEvo"));
+
+        horizontalLayout_2->addWidget(listEvo);
+
+        pokeEvoAttack->addTab(pokeEvo, QString());
+        pokeAttack = new QWidget();
+        pokeAttack->setObjectName(QString::fromUtf8("pokeAttack"));
+        horizontalLayout_3 = new QHBoxLayout(pokeAttack);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        listAttack = new QListWidget(pokeAttack);
+        listAttack->setObjectName(QString::fromUtf8("listAttack"));
+
+        horizontalLayout_3->addWidget(listAttack);
+
+        pokeEvoAttack->addTab(pokeAttack, QString());
+
+        gridLayout->addWidget(pokeEvoAttack, 2, 2, 1, 1);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -150,12 +183,12 @@ public:
 
         tabWidget->addTab(tab_2, QString());
 
-        horizontalLayout->addWidget(tabWidget);
+        gridLayout_3->addWidget(tabWidget, 0, 0, 1, 1);
 
         Pokedex->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Pokedex);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 468, 22));
+        menubar->setGeometry(QRect(0, 0, 795, 22));
         Pokedex->setMenuBar(menubar);
         statusbar = new QStatusBar(Pokedex);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -164,6 +197,7 @@ public:
         retranslateUi(Pokedex);
 
         tabWidget->setCurrentIndex(1);
+        pokeEvoAttack->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Pokedex);
@@ -172,10 +206,15 @@ public:
     void retranslateUi(QMainWindow *Pokedex)
     {
         Pokedex->setWindowTitle(QApplication::translate("Pokedex", "MainWindow", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("Pokedex", "PushButton", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Pokedex", "Page", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("Pokedex", "create team", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("Pokedex", "validate team", 0, QApplication::UnicodeUTF8));
+        pokeImg->setTitle(QApplication::translate("Pokedex", "PokeImg", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Pokedex", "image", 0, QApplication::UnicodeUTF8));
+        pokeIdNom->setTitle(QApplication::translate("Pokedex", "Infos", 0, QApplication::UnicodeUTF8));
+        pokeStats->setTitle(QApplication::translate("Pokedex", "Stats", 0, QApplication::UnicodeUTF8));
+        pokeDescription->setTitle(QApplication::translate("Pokedex", "Description", 0, QApplication::UnicodeUTF8));
+        pokeEvoAttack->setTabText(pokeEvoAttack->indexOf(pokeEvo), QApplication::translate("Pokedex", "Evolution", 0, QApplication::UnicodeUTF8));
+        pokeEvoAttack->setTabText(pokeEvoAttack->indexOf(pokeAttack), QApplication::translate("Pokedex", "attaques", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Pokedex", "Tab 1", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("Pokedex", "GroupBox", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Pokedex", "Tab 2", 0, QApplication::UnicodeUTF8));

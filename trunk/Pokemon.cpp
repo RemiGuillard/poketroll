@@ -72,7 +72,7 @@ void				Pokemon::setId(int id) { _id = id; }
 
 void				Pokemon::setName(QString name) { _name = name; }
 
-void				Pokemon::setTypes(list<QString> types) { _types = types; }
+void				Pokemon::setTypes(const list<QString> &type) { _types = type; }
 
 void				Pokemon::setAbility(QString abi) { _ability = abi; }
 

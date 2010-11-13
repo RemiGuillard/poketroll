@@ -19,11 +19,14 @@ public:
 	~Pokedex();
 public:
 	void				getPokemonFile(const QString &path);
-	void				readName(const QDomElement &Elem, Pokemon *poke);
+	void				readName(QDomElement &Elem, Pokemon *poke);
+	void				readTypes(QDomElement &Elem, Pokemon *poke);
+	void				readAbility(QDomElement &Elem, Pokemon *poke);
+	void				readExp(QDomElement &Elem, Pokemon *poke);
 	//void	getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke);
 private:
 	Ui::Pokedex ui;
-	std::list<Pokemon *> _pokeList;
+	std::map<QString, Pokemon *> _pokeList;
 };
 
 #endif // POKEDEX_H
