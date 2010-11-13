@@ -5,6 +5,7 @@ Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
 	ui.setupUi(this);
+	getPokemonFile("pokedata.xml");
 }
 
 Pokedex::~Pokedex()
@@ -33,29 +34,52 @@ void	Pokedex::getPokemonFile(const QString &path)
 			poke->setId(idPoke);
 			QDomElement Elem = racine.firstChildElement();
 			this->readName(Elem, poke);
-/*			this->getPokeInfoInNode(Elem, poke);*/
+			this->readTypes(Elem, poke);
+			this->readAbility(Elem, poke);
+			this->readExp(Elem, poke);
 		}
 		++idPoke;
 		racine = racine.nextSiblingElement();
 	}
 }
 
-void	Pokedex::readName(const QDomElement &Elem, Pokemon *poke)
+void	Pokedex::readName(QDomElement &Elem, Pokemon *poke)
 {
 	if (Elem.tagName() == "name")
-		poke->setName(Elem.text());
-}
-
-/*
-void	Pokedex::getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke)
-{
-	int idEvo = 1;
-	while (Elem.isNull())
 	{
-
-		if (Elem.tagName() == "name")
-			poke->setPokeName(Elem.text());
-		else if (Elem.tagName() == "type");
+		poke->setName(Elem.text());
 		Elem = Elem.nextSiblingElement();
 	}
-}*/
+	//ui.pokeList->addItem(Elem.text());
+}
+
+void	Pokedex::readTypes(QDomElement &Elem, Pokemon *poke)
+{
+	std::list<QString> type;
+	type.clear();
+	while (Elem.tagName() == "type" && !Elem.isNull())
+	{
+		type.push_back(Elem.text());
+		Elem = Elem.nextSiblingElement();	
+	}
+	poke->setTypes(type);
+}
+
+void	Pokedex::readAbility(QDomElement &Elem, Pokemon *poke)
+{
+	if (Elem.tagName() == "ability")
+	{
+		poke->setAbility(Elem.text());
+		Elem = Elem.nextSiblingElement();
+	}
+}
+
+void Pokedex::readExp(QDomElement &Elem, Pokemon *poke)
+{
+	bool	ok;
+	if (Elem.tagName() == "exp")
+	{
+		poke->setExp(Elem.text().toInt(&ok, 10));
+		Elem = Elem.nextSiblingElement();
+	}
+}
