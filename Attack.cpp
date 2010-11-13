@@ -31,7 +31,7 @@ void			Attack::setType(QString type)  { _type = type; }
 
 QString			Attack::getMachine() const { return _machine; }
 
-void			Attack::setRequire(QString mach) { _machine = mach; }
+void			Attack::setMachine(QString mach) { _machine = mach; }
 
 QString			Attack::getLvl() const { return _lvl; }
 
