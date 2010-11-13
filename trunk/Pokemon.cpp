@@ -80,7 +80,7 @@ void				Pokemon::setExp(int exp) { _exp = exp; }
 
 //void				Pokemon::setStats(Stats * stat) { _stats = stat; }
 
-//void				Pokemon::setEvolve(list<Evolution *> evo) { _evolutions = evo; }
+void				Pokemon::setEvolve(list<Evolution *> evo) { _evolutions = evo; }
 
 void				Pokemon::setRatio(float ratio) { _ratio = ratio; }
 
