@@ -26,7 +26,7 @@ public:
 	void				readStats(QDomElement &Elem, Pokemon *poke);
 	void				readEvolution(QDomElement &Elem, Pokemon *poke);
 	void				readRatio(QDomElement &Elem, Pokemon *poke);
-	//void	getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke);
+	void				getPokeInfoInNode(const QDomElement &Elem, Pokemon *poke);
 private:
 	Ui::Pokedex ui;
 	std::map<QString, Pokemon *> _pokeList;

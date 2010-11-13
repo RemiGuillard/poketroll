@@ -3,11 +3,11 @@
 Pokemon::Pokemon() {}
 
 Pokemon::Pokemon(int id, QString name, list<QString> types, QString ability,
-			int exp/*, Stats* stats*//*, list<Evolution*> evolutions*/,
+			int exp, const Stats &stats, list<Evolution*> evolutions,
 			float ratio, list<QString> eggGroup, QString species, float height,
 			float weight, QString description/*, list<Attack *> attacks*/)
 			: _id(id), _name(name), _types(types), _ability(ability),
-			_exp(exp)/*, _stats(stats)*/,/* _evolutions(evolutions),*/
+			_exp(exp), _stats(stats), _evolutions(evolutions),
 			_ratio(ratio), _eggGroup(eggGroup), _species(species), _height(height),
 			_weight(weight), _description(description)/*, _attacks(attacks)*/ {}
 
@@ -27,8 +27,8 @@ Pokemon&			Pokemon::operator=(const Pokemon &cpy)
 		_types = cpy._types;
 		_ability = cpy._ability;
 		_exp = cpy._exp;
-//		_stats = cpy._stats;
-	//	_evolutions = cpy.evolutions;
+		_stats = cpy._stats;
+		_evolutions = cpy._evolutions;
 		_ratio = cpy._ratio;
 		_eggGroup = cpy._eggGroup;
 		_species = cpy._species;
@@ -50,9 +50,9 @@ QString				Pokemon::getAbility() const { return _ability; }
 
 int					Pokemon::getExp() const { return _exp; }
 
-//Stats				Pokemon::getStats() const { return _stats; }
+Stats				Pokemon::getStats() const { return _stats; }
 
-//list<Evolution *>	Pokemon::getEvolve() const { return _evolutions; }
+list<Evolution *>	Pokemon::getEvolve() const { return _evolutions; }
 
 float				Pokemon::getRatio() const { return _ratio; }
 
@@ -78,7 +78,7 @@ void				Pokemon::setAbility(QString abi) { _ability = abi; }
 
 void				Pokemon::setExp(int exp) { _exp = exp; }
 
-//void				Pokemon::setStats(Stats * stat) { _stats = stat; }
+void				Pokemon::setStats(const Stats &stat) { _stats = stat; }
 
 void				Pokemon::setEvolve(list<Evolution *> evo) { _evolutions = evo; }
 
