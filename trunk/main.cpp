@@ -7,14 +7,14 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	Pokedex w;
-	QSplashScreen	splash(QPixmap("pictures/1.png"));
+	QSplashScreen	splash(QPixmap("pictures/pokemon.jpg"));
 	//start load xml
 	//put all pokemon in window
 	splash.show();
-	QTest::qSleep(2000);
+	QTest::qSleep(1000);
 	w.pokemonNameListDisplay();
 	w.pokemonDisplay(w.getPokeList().value(1));
-	//splash.close();
+	splash.close();
 	w.show();
 	return a.exec();
 }
