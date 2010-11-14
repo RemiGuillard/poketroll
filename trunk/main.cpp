@@ -1,7 +1,7 @@
 #include "pokedex.h"
 #include <QtGui/QApplication>
- #include <QSplashScreen>
- #include <QTest>
+#include <QSplashScreen>
+//#include <QTest>
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	//start load xml
 	//put all pokemon in window
 	splash.show();
-	QTest::qSleep(1000);
+//	QTest::qSleep(1000);
 	w.pokemonNameListDisplay();
 	w.pokemonDisplay(w.getPokeList().value(1));
 	splash.close();
