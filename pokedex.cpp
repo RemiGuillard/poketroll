@@ -11,7 +11,7 @@ Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	getPokemonFile("pokedata.xml");
 	QObject::connect(ui.pokeList, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
-	//QObject::connect(ui.pokeList, SIGNAL(itemSelectionChanged()), this, SLOT(PokemonClicked(ui.pokeList->currentItem();)));
+	QObject::connect(ui.pokeList, SIGNAL(itemChanged(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
 	QObject::connect(ui.listEvo, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
 	QObject::connect(ui.searchButton, SIGNAL(clicked()), this, SLOT(SearchPokemon()));
 	QObject::connect(ui.searchLine, SIGNAL(returnPressed()), this, SLOT(SearchPokemon()));
