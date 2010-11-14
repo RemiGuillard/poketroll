@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="Pokedex"
 	ProjectGUID="{73CAFE2D-F595-4ACC-9867-E122B66CD1D8}"
 	Keyword="Qt4VSv1.0"
@@ -185,10 +185,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Team.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\User.cpp"
 				>
 			</File>
@@ -238,10 +234,6 @@
 			</File>
 			<File
 				RelativePath=".\Stats.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Team.h"
 				>
 			</File>
 			<File
