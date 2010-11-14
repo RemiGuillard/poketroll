@@ -11,7 +11,7 @@
 #include "ui_pokedex.h"
 #include "Pokemon.h"
 #include "Evolution.h"
-#include "User.h"
+
 
 class Pokedex : public QMainWindow
 {
@@ -52,7 +52,7 @@ public slots:
 private:
 	Ui::Pokedex ui;
 	QMap<int, Pokemon *> _pokeList;
-	QList<User *>		_users;
+	//QList<User *>		_users;
 };
 
 #endif // POKEDEX_H

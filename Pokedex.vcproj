@@ -184,10 +184,6 @@
 				RelativePath=".\Stats.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\User.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -234,10 +230,6 @@
 			</File>
 			<File
 				RelativePath=".\Stats.h"
-				>
-			</File>
-			<File
-				RelativePath=".\User.h"
 				>
 			</File>
 		</Filter>
