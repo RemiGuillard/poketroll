@@ -11,8 +11,9 @@ Pokedex::Pokedex(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	getPokemonFile("pokedata.xml");
 	QObject::connect(ui.pokeList, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
-	QObject::connect(ui.pokeList, SIGNAL(itemChanged(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
+	QObject::connect(ui.pokeList, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
 	QObject::connect(ui.listEvo, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
+	//QObject::connect(ui.listEvo, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(PokemonClicked(QListWidgetItem *)));
 	QObject::connect(ui.searchButton, SIGNAL(clicked()), this, SLOT(SearchPokemon()));
 	QObject::connect(ui.searchLine, SIGNAL(returnPressed()), this, SLOT(SearchPokemon()));
 	//ui.pokeList->currentItem();
@@ -35,9 +36,9 @@ int		Pokedex::findIdWithName(QString name)
 void	Pokedex::PokemonClicked(QListWidgetItem *item)
 {
 	/*QString tmp = item->text().toUpper();
-	int pos = tmp.indexOf(QRegExp("/[a-zA-Z]*?\s+/g"), 0);
-	QString test(0);*/
-	//QMessageBox::information(this, "lol", "item->text()");
+	int pos = tmp.indexOf(" ", 0);
+	QString test(0);
+	QMessageBox::information(this, "lol", test.setNum(pos)/*item->text());*/
 	pokemonDisplay(_pokeList.value(findIdWithName(item->text().toUpper())));
 }
 
@@ -53,10 +54,14 @@ void	Pokedex::pokemonNameListDisplay()
 {
 	QMapIterator<int, Pokemon *>	it(this->_pokeList);
 
+	Pokemon *poke;
+	QString tmp;
+	QString num(0);
 	while (it.hasNext())
 	{
-		it.next();
-		ui.pokeList->addItem(it.value()->getName());
+		poke = *it.next();
+		tmp = /*num.setNum(poke->getId()) + "  " + */poke->getName();
+		ui.pokeList->addItem(tmp);
 	}
 }
 
@@ -69,14 +74,47 @@ void	Pokedex::pokemonDisplay(const Pokemon *poke)
 	ui.labelImg->setScaledContents(true);
 	ui.descr->setText(poke->getDescription());
 	ui.labelName->setText(poke->getName());
-	ui.textStats->setText("HP\t=   " + poke->getStats().getHp() + "\n");
-	ui.textStats->append("ATK\t=   " + poke->getStats().getAtk() + "\n");
-	ui.textStats->append("DEF\t=   " + poke->getStats().getDef() + "\n");
-	ui.textStats->append("SPD\t=   " + poke->getStats().getSpd() + "\n");
-	ui.textStats->append("SAT\t=   " + poke->getStats().getSat() + "\n");
+	ui.textStats->setText("HP\t=   " + poke->getStats().getHp());
+	ui.textStats->append("ATK\t=   " + poke->getStats().getAtk());
+	ui.textStats->append("DEF\t=   " + poke->getStats().getDef());
+	ui.textStats->append("SPD\t=   " + poke->getStats().getSpd());
+	ui.textStats->append("SAT\t=   " + poke->getStats().getSat());
 	ui.textStats->append("SDF\t=   " + poke->getStats().getSdf());
+	QString tmp(0);
+	ui.textStats->append("Height\t=   " + tmp.setNum(poke->getHeight()));
+	ui.textStats->append("Weight\t=   " + tmp.setNum(poke->getWeight()));
+	ui.textStats->append("Ratio\t=   " + tmp.setNum(poke->getRatio()));
+	writeType(poke->getTypes());
+	writeEgg(poke->getTypes());
+	ui.textStats->append("Ability\t=   " + poke->getAbility());
+	ui.textStats->append("Exp\t=   " + tmp.setNum(poke->getExp()));
+	ui.textStats->append("Species\t=   " + poke->getSpecies());
 	writeEvolutionList(poke->getEvolve());
 	writeAtkList(poke->getAttacks());
+}
+
+void	Pokedex::writeEgg(const QList<QString> &egglist)
+{
+	QListIterator<QString>	it(egglist);
+
+	QString tmp = "";
+	while (it.hasNext())
+	{
+		tmp += it.next();
+	}
+	ui.textStats->append("Egg-Group\t=   " + tmp);
+}
+
+void	Pokedex::writeType(const QList<QString> &typelist)
+{
+	QListIterator<QString>	it(typelist);
+
+	QString tmp = "";
+	while (it.hasNext())
+	{
+		tmp += it.next();
+	}
+	ui.textStats->append("type\t=   " + tmp);
 }
 
 void	Pokedex::writeEvolutionList(const QList<Evolution *> &evolist)

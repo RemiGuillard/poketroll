@@ -43,7 +43,8 @@ public:
 	int					findIdWithName(QString name);
 	void				writeEvolutionList(const QList<Evolution *> &evo);
 	void				writeAtkList(const QList<Attack *> &atk);
-
+	void				writeType(const QList<QString> &typelist);
+	void				writeEgg(const QList<QString> &egglist);
 public slots:
 	void			PokemonClicked(QListWidgetItem *);
 	void			SearchPokemon();
